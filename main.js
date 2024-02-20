@@ -6,7 +6,7 @@ class DragonLine {
     this.length = length;
     this.splited = false;
     this.inside = inside;
-    this.angle = 0.78;
+    this.angle = PI/4;
   }
 
   draw() {
@@ -39,7 +39,7 @@ class DragonLine {
   splitCurve() {
     if (this.splited) return [];
     let newLength = this.length / (2 * cos(this.angle));
-    if (newLength < 5) return [];
+    if (newLength < 5)noLoop();
     return this.split(newLength);
   }
 }
@@ -67,7 +67,7 @@ function draw() {
     stroke(((index + 1) * 360) / curves.length, 100, 100);
     c.draw();
   });
-
+ 
   curves = curves.concat(curves[0].splitCurve());
   curves = curves.splice(1);
 }
