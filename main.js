@@ -39,7 +39,7 @@ class DragonLine {
   splitCurve() {
     if (this.splited) return [];
     let newLength = this.length / (2 * cos(this.angle));
-    if (newLength < 2)noLoop();
+    if (newLength < 1)noLoop();
     return this.split(newLength);
   }
 }
